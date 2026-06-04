@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Todo en Uno</title>
+
+    <!-- AQUÍ VA EL CSS (Sustituye al archivo styles.css) -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a2e; /* Un color oscuro tipo gaming */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: #16213e;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #0f3460;
+            width: 300px;
+            text-align: center;
+        }
+
+        input[type="number"], input[type="range"] {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .result {
+            background: #0f3460;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        h1 { font-size: 1.2rem; color: #e94560; }
+        .total { font-weight: bold; font-size: 1.4rem; color: #00d2ff; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>🎮 Calculadora de Propinas</h1>
+        
+        <label>Total de la cuenta:</label>
+        <input type="number" id="bill" placeholder="0.00">
+
+        <label>Propina: <span id="tipValue">15%</span></label>
+        <input type="range" id="tipRange" min="0" max="30" value="15">
+
+        <div class="result">
+            <p>Propina: <span id="tipAmount">$0.00</span></p>
+            <p class="total">Total: <span id="totalAmount">$0.00</span></p>
+        </div>
+    </div>
+
+    <!-- AQUÍ VA EL JAVASCRIPT (Sustituye al archivo script.js) -->
+    <script>
+        const billInput = document.getElementById('bill');
+        const tipRange = document.getElementById('tipRange');
+        const tipValueText = document.getElementById('tipValue');
+        const tipAmountDisplay = document.getElementById('tipAmount');
+        const totalAmountDisplay = document.getElementById('totalAmount');
+
+        function update() {
+            const bill = parseFloat(billInput.value) || 0;
+            const percent = tipRange.value;
+            
+            tipValueText.innerText = percent + "%";
+
+            const tip = bill * (percent / 100);
+            const total = bill + tip;
+
+            tipAmountDisplay.innerText = "$" + tip.toFixed(2);
+            totalAmountDisplay.innerText = "$" + total.toFixed(2);
+        }
+
+        // Escuchamos los cambios
+        billInput.addEventListener('input', update);
+        tipRange.addEventListener('input', update);
+    </script>
+</body>
+</html>
