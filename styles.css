@@ -1,7 +1,7 @@
-/* Estilos generales del cuerpo */
+/* Estilos generales del cuerpo - Fondo espacial */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1f2029;
+    background-color: #0d0e15; /* Azul oscuro profundo */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,75 +11,93 @@ body {
 
 /* Contenedor principal de la calculadora */
 .calculator {
-    border-radius: 12px;
-    background-color: #101114;
-    padding: 20px;
-    width: 400px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    background-color: #161824; /* Color de la caja principal */
+    padding: 24px;
+    width: 380px;
+    box-shadow: 0px 15px 35px rgba(0, 242, 254, 0.15); /* Brillo neón sutil alrededor */
+    border: 1px solid #1f2336;
 }
 
-/* Pantalla de resultados */
+/* Pantalla de resultados - Estilo Cristal/Neón */
 .calculator-screen {
     width: 100%;
-    height: 80px;
+    height: 90px;
     border: none;
-    background-color: #25252b;
-    color: #ffffff;
+    background-color: #0a0b10;
+    color: #00f2fe; /* Texto color cian brillante */
     text-align: right;
     padding-right: 20px;
     padding-left: 20px;
-    font-size: 2.5rem;
-    border-radius: 8px;
+    font-size: 2.8rem;
+    border-radius: 12px;
     box-sizing: border-box;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    font-weight: 300;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.5); /* Efecto de brillo en los números */
 }
 
-/* Contenedor de los botones (Usando Grid) */
+/* Contenedor de los botones (Grid de 4 columnas) */
 .calculator-keys {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 12px;
+    grid-gap: 14px;
 }
 
-/* Estilo base para todos los botones */
+/* Estilo base para los botones numéricos */
 button {
-    height: 60px;
-    background-color: #2d2f3b;
+    height: 65px;
+    background-color: #1f2336; /* Gris azulado */
     border: none;
-    border-radius: 8px;
-    color: #ffffff;
-    font-size: 1.5rem;
+    border-radius: 10px;
+    color: #e2e8f0; /* Blanco suave */
+    font-size: 1.6rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
+/* Efecto al pasar el mouse por los números */
 button:hover {
-    background-color: #3d4050;
+    background-color: #2b304a;
+    transform: translateY(-2px); /* Pequeño salto hacia arriba */
 }
 
-/* Estilos específicos para ciertos botones */
+/* Botones de operaciones (+, -, *, /) - Color Morado Neón */
 .operator {
-    background-color: #ff9f0a;
+    background-color: #7928ca;
+    color: #ffffff;
 }
 
 .operator:hover {
-    background-color: #cc7f08;
+    background-color: #9b46ef;
+    box-shadow: 0 0 12px rgba(121, 40, 202, 0.6);
 }
 
+/* Botón de borrar (AC) - Color Coral/Rojo */
 .all-clear {
-    background-color: #ff3b30;
+    background-color: #ff0055;
+    color: #ffffff;
 }
 
 .all-clear:hover {
-    background-color: #cc2f26;
+    background-color: #ff3377;
+    box-shadow: 0 0 12px rgba(255, 0, 85, 0.6);
 }
 
-/* El botón de igual (=) ocupa el espacio de dos columnas */
+/* Botón de igual (=) - Color Verde Neón */
 .equal-sign {
-    background-color: #34c759;
-    grid-column: span 2;
+    background-color: #00f2fe;
+    color: #0d0e15; /* Texto oscuro para que contraste */
+    grid-column: span 2; /* Ocupa dos columnas */
 }
 
 .equal-sign:hover {
-    background-color: #299e46;
+    background-color: #42f9ff;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.8);
+}
+
+/* Botón del punto decimal */
+.decimal {
+    background-color: #1f2336;
 }
